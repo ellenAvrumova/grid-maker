@@ -2,7 +2,7 @@
 This repository is the starter code for Assignment 3 - Grid Maker.
 
 ### Live Link
-[Website link](https://johnnylaicode.github.io/grid-maker-starter-code/)
+[Website link](https://ellenavrumova.github.io/grid-maker/)
 
 ### Group
 1. Emmy Veselinov - emmyvese12
