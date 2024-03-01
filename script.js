@@ -1,11 +1,40 @@
 // Declare global variables
 let numRows = 0;
 let numCols = 0;
-let colorSelected; 
+let colorSelected;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    //alert("Clicked Add Row"); // Replace this line with your code.
+
+    //Create new row
+    let tr = document.createElement('tr');
+
+    //Select the table
+    var table = document.getElementById("grid");
+
+    //If no rows are present add a new row with one column
+    if (table.rows.length === 0) {
+        var td = document.createElement('td');
+        tr.appendChild(td);
+        td.onclick = function () {
+            alert('Clicked a table cell');
+        };
+    }
+    //If rows are present, create cells equal to number of columns in first
+    else {
+        var cellCount = table.rows[0].childElementCount;
+        for (let i = 0; i < cellCount; i++) {
+            var td = document.createElement('td');
+            tr.appendChild(td);
+            td.onclick = function () {
+                alert('Clicked a table cell');
+            };
+        }
+    }
+    
+    //Add the new row to the table
+    document.querySelector('table').appendChild(tr);
 }
 
 // Add a column
@@ -24,22 +53,22 @@ function removeC() {
 }
 
 // Set global variable for selected color
-function selectColor(){
+function selectColor() {
     colorSelected = document.getElementById("selectedColorId").value;
     console.log(colorSelected);
 }
 
 // Fill all uncolored cells
-function fillU(){
+function fillU() {
     alert("Clicked Fill All Uncolored"); // Replace this line with your code.
 }
 
 // Fill all cells
-function fillAll(){
+function fillAll() {
     alert("Clicked Fill All"); // Replace this line with your code.
 }
 
 // Clear all cells
-function clearAll(){
+function clearAll() {
     alert("Clicked Clear All"); // Replace this line with your code.
 }
