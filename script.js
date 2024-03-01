@@ -32,7 +32,7 @@ function addR() {
             };
         }
     }
-
+    
     //Add the new row to the table
     document.querySelector('table').appendChild(tr);
 }
