@@ -45,7 +45,18 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    // if there are rows existing, or "no rows" but 1 column, remove the row
+    if(numRows > 0 || numCols == 1) {
+        let grid = document.getElementById("grid");
+        let lastRow = grid.lastElementChild;
+        grid.removeChild(lastRow);
+
+        numRows--;
+    }
+    // if there are no more rows left, then there are no more columns
+    if(numRows <= 0) {
+        numCols == 0
+    }
 }
 
 // Remove a column
