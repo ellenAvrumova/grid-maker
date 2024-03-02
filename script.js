@@ -84,7 +84,7 @@ function removeR() {
     }
     // if there are no more rows left, then there are no more columns
     if(numRows <= 0) {
-        numCols == 0
+        numCols = 0;
     }
 }
 
