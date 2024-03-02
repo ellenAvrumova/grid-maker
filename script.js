@@ -103,6 +103,13 @@ function removeC() {
     // if there are no more columns left, then there are no more rows
     if(numCols <= 0) {
         numRows = 0;
+        let e = document.querySelector("table");
+        //e.firstElementChild can be used. 
+        let child = e.lastElementChild;
+        while (child) {
+            e.removeChild(child);
+            child = e.lastElementChild;
+        }
     }
 }
 
