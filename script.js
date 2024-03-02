@@ -90,6 +90,7 @@ function removeR() {
 
 // Remove a column
 function removeC() {
+    // if there are columns existing, or "no columns" but 1 row, remove the column
     if(numCols > 0 || numRows == 1) {
         let eachRow = document.getElementById("grid").children;
         console.log(eachRow);
@@ -99,8 +100,9 @@ function removeC() {
 
         numCols--;
     }
+    // if there are no more columns left, then there are no more rows
     if(numCols <= 0) {
-        numRows == 0;
+        numRows = 0;
     }
 }
 
