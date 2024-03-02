@@ -20,6 +20,7 @@ function addR() {
         td.onclick = function () {
             alert('Clicked a table cell');
         };
+        numCols++;
     }
     //If rows are present, create cells equal to number of columns in first
     else {
