@@ -40,7 +40,34 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    //alert("Clicked Add Col"); // Replace this line with your code.
+
+    //Select the table
+    var table = document.getElementById("grid");
+
+    //If there are no rows add new row and coll to the table
+    if (table.rows.length === 0) {
+        var tr = document.createElement("tr");
+        var td = document.createElement("td");
+        tr.appendChild(td);
+        table.appendChild(tr);
+        td.onclick = function () {
+            alert('Clicked a table cell');
+        };
+    }
+    //If there are rows add a new column to each row
+    else {
+        for (var i = 0; i < table.rows.length; i++) {
+            // Create a new td element
+            var newCell = document.createElement("td");
+            // Append the new td element to the current row
+            table.rows[i].appendChild(newCell);
+            table.rows[i].onclick = function () {
+                alert('Clicked a table cell');
+            };
+        }
+    }
+    numCols++;
 }
 
 // Remove a row
