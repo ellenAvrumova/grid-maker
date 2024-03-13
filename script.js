@@ -129,7 +129,6 @@ function fillAll() {
      // loop through all the rows 
     for (let i = 0; i < rows.length; i++){ 
         let cols = rows[i].children;
-        rows[i].style.backgroundColor = colorSelected;
         
      //loop through all the cols of each row
         for (let j = 0; j < rows[i].childElementCount; j++){
