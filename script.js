@@ -125,8 +125,19 @@ function fillU() {
 
 // Fill all cells
 function fillAll() {
-    alert("Clicked Fill All"); // Replace this line with your code.
-}
+    let rows = document.getElementById("grid").children; 
+     // loop through all the rows 
+    for (let i = 0; i < rows.length; i++){ 
+        let cols = rows[i].children;
+        rows[i].style.backgroundColor = colorSelected;
+        
+     //loop through all the cols of each row
+        for (let j = 0; j < rows[i].childElementCount; j++){
+            cols[j].style.backgroundColor = colorSelected;
+        } 
+    }
+ 
+ }
 
 // Clear all cells
 function clearAll() {
