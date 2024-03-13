@@ -120,7 +120,22 @@ function selectColor() {
 
 // Fill all uncolored cells
 function fillU() {
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    let rows = document.getElementById("grid").children; 
+
+    // loop through all the rows 
+    for (let i = 0; i < rows.length; i++){ 
+        let cols = rows[i].children;
+        
+    //loop through all the cols of each row
+        for (let j = 0; j < rows[i].childElementCount; j++){
+            let bgcolor = cols[j].style.backgroundColor;
+            if (bgcolor == ""){ 
+                cols[j].style.backgroundColor = colorSelected;
+            }
+            
+        } 
+    }
+
 }
 
 // Fill all cells
@@ -130,7 +145,7 @@ function fillAll() {
     for (let i = 0; i < rows.length; i++){ 
         let cols = rows[i].children;
         
-     //loop through all the cols of each row
+    //loop through all the cols of each row
         for (let j = 0; j < rows[i].childElementCount; j++){
             cols[j].style.backgroundColor = colorSelected;
         } 
