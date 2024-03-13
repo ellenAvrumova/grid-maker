@@ -3,6 +3,12 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected;
 
+// Set global variable for selected color
+function selectColor() {
+    colorSelected = document.getElementById("selectedColorId").value;
+    console.log(colorSelected);
+}
+
 // Add a row
 function addR() {
     //alert("Clicked Add Row"); // Replace this line with your code.
@@ -19,6 +25,7 @@ function addR() {
         tr.appendChild(td);
         td.onclick = function () {
             alert('Clicked a table cell');
+            colorCell(td);
         };
         numCols++;
     }
@@ -30,6 +37,7 @@ function addR() {
             tr.appendChild(td);
             td.onclick = function () {
                 alert('Clicked a table cell');
+                colorCell(td);
             };
         }
     }
@@ -54,6 +62,7 @@ function addC() {
         table.appendChild(tr);
         td.onclick = function () {
             alert('Clicked a table cell');
+            colorCell(td);
         };
         numRows++;
     }
@@ -66,6 +75,7 @@ function addC() {
             table.rows[i].appendChild(newCell);
             table.rows[i].onclick = function () {
                 alert('Clicked a table cell');
+                colorCell(table.rows[i].child);
             };
         }
     }
@@ -112,12 +122,6 @@ function removeC() {
     }
 }
 
-// Set global variable for selected color
-function selectColor() {
-    colorSelected = document.getElementById("selectedColorId").value;
-    console.log(colorSelected);
-}
-
 // Fill all uncolored cells
 function fillU() {
     alert("Clicked Fill All Uncolored"); // Replace this line with your code.
@@ -142,4 +146,14 @@ function fillAll() {
 // Clear all cells
 function clearAll() {
     alert("Clicked Clear All"); // Replace this line with your code.
+}
+
+// Color single cell
+function colorCell(cell) {
+    //Select the table
+    console.log("test");
+    console.log(cell);
+    // this.style.backgroundColor = colorSelected;
+    cell.style.backgroundColor = colorSelected;
+
 }
