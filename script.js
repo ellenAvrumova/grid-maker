@@ -144,16 +144,17 @@ function fillAll() {
      // loop through all the rows 
     for (let i = 0; i < rows.length; i++){ 
         let cols = rows[i].children;
-        
     //loop through all the cols of each row
         for (let j = 0; j < rows[i].childElementCount; j++){
             cols[j].style.backgroundColor = colorSelected;
         } 
     }
- 
  }
 
 // Clear all cells
 function clearAll() {
-    alert("Clicked Clear All"); // Replace this line with your code.
+    let cells = document.querySelectorAll('td');
+    for(let i = 0; i < cells.length; i++) {
+        cells[i].style.backgroundColor = "";
+    }
 }
