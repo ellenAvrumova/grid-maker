@@ -3,12 +3,6 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected;
 
-// Set global variable for selected color
-function selectColor() {
-    colorSelected = document.getElementById("selectedColorId").value;
-    console.log(colorSelected);
-}
-
 // Add a row
 function addR() {
     //alert("Clicked Add Row"); // Replace this line with your code.
@@ -23,10 +17,9 @@ function addR() {
     if (table.rows.length === 0) {
         var td = document.createElement('td');
         tr.appendChild(td);
-        // td.onclick = function () {
-        //     alert('Clicked a table cell');
-        //     colorCell(td);
-        // };
+        td.onclick = function () {
+            alert('Clicked a table cell');
+        };
         numCols++;
     }
     //If rows are present, create cells equal to number of columns in first
@@ -35,10 +28,9 @@ function addR() {
         for (let i = 0; i < cellCount; i++) {
             var td = document.createElement('td');
             tr.appendChild(td);
-            // td.onclick = function () {
-            //     alert('Clicked a table cell');
-            //     colorCell(td);
-            // };
+            td.onclick = function () {
+                alert('Clicked a table cell');
+            };
         }
     }
     
@@ -56,28 +48,25 @@ function addC() {
 
     //If there are no rows add new row and coll to the table
     if (table.rows.length === 0) {
-        // var tr = document.createElement("tr");
-        let tr = document.createElement('tr');
+        var tr = document.createElement("tr");
         var td = document.createElement("td");
         tr.appendChild(td);
         table.appendChild(tr);
-        // td.onclick = function () {
-        //     alert('Clicked a table cell');
-        //     colorCell(td);
-        // };
+        td.onclick = function () {
+            alert('Clicked a table cell');
+        };
         numRows++;
     }
     //If there are rows add a new column to each row
     else {
         for (var i = 0; i < table.rows.length; i++) {
             // Create a new td element
-            var td = document.createElement('td');
+            var newCell = document.createElement("td");
             // Append the new td element to the current row
-            table.rows[i].appendChild(td);
-            // td.onclick = function () {
-            //     alert('Clicked a table cell');
-            //     colorCell(td);
-            // };
+            table.rows[i].appendChild(newCell);
+            table.rows[i].onclick = function () {
+                alert('Clicked a table cell');
+            };
         }
     }
     numCols++;
@@ -123,9 +112,30 @@ function removeC() {
     }
 }
 
+// Set global variable for selected color
+function selectColor() {
+    colorSelected = document.getElementById("selectedColorId").value;
+    console.log(colorSelected);
+}
+
 // Fill all uncolored cells
 function fillU() {
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    let rows = document.getElementById("grid").children; 
+
+    // loop through all the rows 
+    for (let i = 0; i < rows.length; i++){ 
+        let cols = rows[i].children;
+        
+    //loop through all the cols of each row
+        for (let j = 0; j < rows[i].childElementCount; j++){
+            let bgcolor = cols[j].style.backgroundColor;
+            if (bgcolor == ""){ 
+                cols[j].style.backgroundColor = colorSelected;
+            }
+            
+        } 
+    }
+
 }
 
 // Fill all cells
@@ -150,11 +160,3 @@ function clearAll() {
         cells[i].style.backgroundColor = "";
     }
 }
-
-// Color single cell
-var table = document.getElementById('grid');
-// Add event listener to the table
-table.addEventListener('click', function (event) {
-    var target = event.target;
-    target.style.backgroundColor = colorSelected;
-});
