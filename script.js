@@ -23,10 +23,10 @@ function addR() {
     if (table.rows.length === 0) {
         var td = document.createElement('td');
         tr.appendChild(td);
-        td.onclick = function () {
-            alert('Clicked a table cell');
-            colorCell(td);
-        };
+        // td.onclick = function () {
+        //     alert('Clicked a table cell');
+        //     colorCell(td);
+        // };
         numCols++;
     }
     //If rows are present, create cells equal to number of columns in first
@@ -35,10 +35,10 @@ function addR() {
         for (let i = 0; i < cellCount; i++) {
             var td = document.createElement('td');
             tr.appendChild(td);
-            td.onclick = function () {
-                alert('Clicked a table cell');
-                colorCell(td);
-            };
+            // td.onclick = function () {
+            //     alert('Clicked a table cell');
+            //     colorCell(td);
+            // };
         }
     }
     
@@ -56,27 +56,28 @@ function addC() {
 
     //If there are no rows add new row and coll to the table
     if (table.rows.length === 0) {
-        var tr = document.createElement("tr");
+        // var tr = document.createElement("tr");
+        let tr = document.createElement('tr');
         var td = document.createElement("td");
         tr.appendChild(td);
         table.appendChild(tr);
-        td.onclick = function () {
-            alert('Clicked a table cell');
-            colorCell(td);
-        };
+        // td.onclick = function () {
+        //     alert('Clicked a table cell');
+        //     colorCell(td);
+        // };
         numRows++;
     }
     //If there are rows add a new column to each row
     else {
         for (var i = 0; i < table.rows.length; i++) {
             // Create a new td element
-            var newCell = document.createElement("td");
+            var td = document.createElement('td');
             // Append the new td element to the current row
-            table.rows[i].appendChild(newCell);
-            table.rows[i].onclick = function () {
-                alert('Clicked a table cell');
-                colorCell(table.rows[i].child);
-            };
+            table.rows[i].appendChild(td);
+            // td.onclick = function () {
+            //     alert('Clicked a table cell');
+            //     colorCell(td);
+            // };
         }
     }
     numCols++;
@@ -136,11 +137,10 @@ function fillAll() {
         rows[i].style.backgroundColor = colorSelected;
         
      //loop through all the cols of each row
-        for (let j = 0; j < rows[i].childElementCount; j++){
+    for (let j = 0; j < rows[i].childElementCount; j++){
             cols[j].style.backgroundColor = colorSelected;
         } 
     }
- 
  }
 
 // Clear all cells
@@ -149,11 +149,9 @@ function clearAll() {
 }
 
 // Color single cell
-function colorCell(cell) {
-    //Select the table
-    console.log("test");
-    console.log(cell);
-    // this.style.backgroundColor = colorSelected;
-    cell.style.backgroundColor = colorSelected;
-
-}
+var table = document.getElementById('grid');
+// Add event listener to the table
+table.addEventListener('click', function (event) {
+    var target = event.target;
+    target.style.backgroundColor = colorSelected;
+});
