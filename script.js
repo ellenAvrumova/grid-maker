@@ -18,7 +18,7 @@ function addR() {
         var td = document.createElement('td');
         tr.appendChild(td);
         td.onclick = function () {
-            alert('Clicked a table cell');
+            // alert('Clicked a table cell');
         };
         numCols++;
     }
@@ -29,7 +29,7 @@ function addR() {
             var td = document.createElement('td');
             tr.appendChild(td);
             td.onclick = function () {
-                alert('Clicked a table cell');
+                // alert('Clicked a table cell');
             };
         }
     }
@@ -53,7 +53,7 @@ function addC() {
         tr.appendChild(td);
         table.appendChild(tr);
         td.onclick = function () {
-            alert('Clicked a table cell');
+            // alert('Clicked a table cell');
         };
         numRows++;
     }
@@ -65,7 +65,7 @@ function addC() {
             // Append the new td element to the current row
             table.rows[i].appendChild(newCell);
             table.rows[i].onclick = function () {
-                alert('Clicked a table cell');
+                // alert('Clicked a table cell');
             };
         }
     }
@@ -158,3 +158,11 @@ function clearAll() {
         cells[i].style.backgroundColor = "";
     }
 }
+
+// Event listener to color specific cells
+var table = document.getElementById('grid');
+// Add event listener to the table
+table.addEventListener('click', function (event) {
+    var target = event.target;
+    target.style.backgroundColor = colorSelected;
+});
